@@ -65,11 +65,11 @@ public class Main {
     }
     private static void comer() {
         if (saciedad < 10) {
-            saciedad += 5;
+            saciedad += 3;
             if (saciedad > 10) saciedad = 10;
             diversion -= 1;
             System.out.println("Gracias por la comida.");
-
+            mostrarEstado();
         } else {
             System.out.println("No tengo hambre.");
         }
