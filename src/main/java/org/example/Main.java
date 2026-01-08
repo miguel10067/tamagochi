@@ -4,6 +4,7 @@ public class Main {
     static int saciedad = 6;
     static int energia = 6;
     static int diversion = 6;
+
     public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
         int o;
@@ -11,6 +12,12 @@ public class Main {
             o = mostrarMenu(lector);
 
             switch (o) {
+                case 4:
+                    jugar();
+                    break;
+                case 5:
+                    dormir();
+                    break;
                 case 2:
                     comer();
                     break;
@@ -26,6 +33,7 @@ public class Main {
             }
         } while (o != 0);
     }
+
     private static void mostrarEstado() {
         System.out.println("\n--- ESTADO ACTUAL ---");
         System.out.println("Saciedad: " + saciedad + " | Energía: " + energia + " | Diversión: " + diversion);
@@ -43,6 +51,7 @@ public class Main {
             System.out.println("(^.^) ¡Estoy feliz!");
         }
     }
+
     private static int mostrarMenu(Scanner lector) {
         int o;
         do {
@@ -63,6 +72,7 @@ public class Main {
 
         return o;
     }
+
     private static void comer() {
         if (saciedad < 10) {
             saciedad += 3;
@@ -72,6 +82,32 @@ public class Main {
             mostrarEstado();
         } else {
             System.out.println("No tengo hambre.");
+        }
+    }
+
+    private static void jugar() {
+        if (diversion < 10) {
+            diversion += 3;
+            if (diversion > 10) diversion = 10;
+            saciedad -= 1;
+            energia -= 1;
+            System.out.println("Valee");
+            mostrarEstado();
+        } else {
+            System.out.println("Ahora no me apetece jugar.");
+        }
+    }
+
+    private static void dormir() {
+        if (energia < 10) {
+            energia += 3;
+            if (energia > 10) energia = 10;
+            saciedad -= 3;
+            diversion -= 2;
+            System.out.println("Buenas noches");
+            mostrarEstado();
+        } else {
+            System.out.println("Ahora no tengo sueño.");
         }
     }
 }
