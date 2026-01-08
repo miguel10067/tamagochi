@@ -10,8 +10,19 @@ public class Main {
         do {
             o = mostrarMenu(lector);
 
-            if (o == 1) {
-                mostrarEstado();
+            switch (o) {
+                case 2:
+                    comer();
+                    break;
+                case 1:
+                    mostrarEstado();
+                    break;
+                case 0:
+                    System.out.println("Adios");
+                    break;
+                default:
+                    System.out.println("Esta opcion no existe.");
+                    break;
             }
         } while (o != 0);
     }
@@ -51,6 +62,17 @@ public class Main {
         } while (o < 0 || o > 4);
 
         return o;
+    }
+    private static void comer() {
+        if (saciedad < 10) {
+            saciedad += 5;
+            if (saciedad > 10) saciedad = 10;
+            diversion -= 1;
+            System.out.println("Gracias por la comida.");
+
+        } else {
+            System.out.println("No tengo hambre.");
+        }
     }
 }
 
