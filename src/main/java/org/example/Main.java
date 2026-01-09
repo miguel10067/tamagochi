@@ -12,10 +12,13 @@ public class Main {
             o = mostrarMenu(lector);
 
             switch (o) {
+                case 5:
+                    curar();
+                    break;
                 case 4:
                     jugar();
                     break;
-                case 5:
+                case 3:
                     dormir();
                     break;
                 case 2:
@@ -60,15 +63,16 @@ public class Main {
             System.out.println("2. Comer");
             System.out.println("3. Jugar");
             System.out.println("4. Dormir");
+            System.out.println("5. Curar");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion del menu: ");
 
             o = lector.nextInt();
 
-            if (o < 0 || o > 4) {
+            if (o < 0 || o > 45 {
                 System.out.println("La opción no es válida, intentalo de nuevo.");
             }
-        } while (o < 0 || o > 4);
+        } while (o < 0 || o > 5);
 
         return o;
     }
@@ -109,6 +113,18 @@ public class Main {
         } else {
             System.out.println("Ahora no tengo sueño.");
         }
+    }
+    private static void curar(){
+        if (saciedad <= 2 || energia <= 2 || diversion <= 2) {
+            System.out.println("\nGracias por la medicina, ahora estoy mejor.");
+            saciedad = 5;
+            energia = 5;
+            diversion = 5;
+        } else {
+            System.out.println("\nNo necesito medicina, estoy bien");
+        }
+        mostrarEstado();
+    }
     }
 }
 
